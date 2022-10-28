@@ -58,7 +58,7 @@ pipeline {
                         // using the full url so that we do not care if https checkout used in Jenkins
                         sh 'git config --global user.email "aravind.kopparthi@gmail.com"'
                         sh 'git config --global user.name "Jenkins CI"'
-                        sh 'git push git@github.com/aravind-kopparthi/maven-cd.git $(cat TAG_NAME.txt)'
+                        sh 'git push git@github.com/aravind-kopparthi/java-cicd.git $(cat TAG_NAME.txt)'
                //     }
                     // Set the display name to the version so it is easier to see in the UI
                     script { currentBuild.displayName = readFile('VERSION.txt').trim() }
