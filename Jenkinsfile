@@ -30,7 +30,13 @@ pipeline {
         stage('NextTag') {
             steps {
               script {
-                    version = sh (script: 'git describe --tags $(git rev-list --tags --max-count=1)',returnStdout: true).trim()
+                  try {  
+                  version = sh (script: 'git describe --tags $(git rev-list --tags --max-count=1)',returnStdout: true).trim()
+                  }
+                   catch (Exception e) {
+                      echo 'Exception occurred: ' + e.toString()
+                       version = "v0.0.1"
+                  }
               }
               sh ' echo $version '
             }
