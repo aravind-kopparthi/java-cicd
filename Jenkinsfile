@@ -1,6 +1,4 @@
-def changeList = "-SNAPSHOT"
-def result = "0.0.0"
-def revision = "2.2.2"
+
 pipeline {
     agent {
         dockerfile {
@@ -8,7 +6,11 @@ pipeline {
         }
     }
 
- 
+   environment {
+       changeList = "-SNAPSHOT"
+       result = "0.0.0"
+       revision = "2.2.2"
+    }
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')
         disableConcurrentBuilds()
@@ -20,14 +22,14 @@ pipeline {
               }
             steps {
                 script{
-                    changeList = ""
+                    ${env.changeList} = ""
                 }
             }
              
         }
         stage('Build') {
             steps {
-                sh 'mvn verify -Drevision=${revision} -Dchangelist=${changeList}' 
+                sh 'mvn verify -Drevision=${env.revision} -Dchangelist=${env.changeList}' 
             }
         }
         stage('NextTag') {
