@@ -14,11 +14,7 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
-       stage(‘preparation’){
-         steps {
-               checkout scm 
-         } 
-       }
+ 
         stage('Build') {
             when {
                 not { branch 'main' }
