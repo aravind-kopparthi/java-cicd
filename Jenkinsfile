@@ -1,5 +1,6 @@
-def changeList = "-SNAPSHOT"
-def revision = "2.2.2"
+def changeList = ""
+def revision = "2.3.2"
+def sha1 = ""
 pipeline {
     agent {
         dockerfile {
@@ -19,18 +20,19 @@ pipeline {
     stages {
         stage('Prepare') {
            when {
-                expression {env.GIT_BRANCH == 'main'}
+                not {env.GIT_BRANCH == 'main'}
               }
             steps {
                 script{
-                    changeList = ""
+                    changeList = "-SNAPSHOT"
+                    sha1 = env.GIT_COMMIT.take(7)
                 }
             }
              
         }
         stage('Build') {
             steps {
-                sh "mvn verify -Drevision=${revision} -Dchangelist=${changeList}"
+                sh "mvn verify -Drevision=${revision} -Dchangelist=${changeList} -Dsha1=${sha1}"
             }
         }
         stage('NextTag') {
