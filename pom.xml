@@ -118,7 +118,8 @@
             <id>jboss-repo</id>
             <url>http://repository.jboss.org/nexus/content/groups/public/</url>
         </repository>
-            <id>apache.snapshots</id>
+           <repository>
+           <id>apache.snapshots</id>
            <name>Apache Development Snapshot Repository</name>
            <url>https://repository.apache.org/content/repositories/snapshots/</url>
            <releases>
@@ -127,5 +128,6 @@
            <snapshots>
              <enabled>true</enabled>
            </snapshots>
+         </repository>
   </repositories>      
 </project>
