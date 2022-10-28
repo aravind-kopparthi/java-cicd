@@ -5,7 +5,7 @@
 
   <groupId>io.github.cloudbeers</groupId>
   <artifactId>java-cicdjava-cicd</artifactId>
-  <version>${revision}{sha1}{changelist}</version>
+  <version>${revision}${sha1}${changelist}</version>
   <packaging>war</packaging>
 
   <name>java-cicd Maven Webapp</name>
