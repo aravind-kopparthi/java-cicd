@@ -14,11 +14,7 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
-       stage(‘preparation’){
-         steps {
-               checkout scm 
-         } 
-       }
+     
         stage('Build') {
             when {
                 not { branch 'main' }
@@ -28,6 +24,9 @@ pipeline {
             }
         }
         stage('NextTag') {
+            when {
+                 branch 'main'
+            }
             steps {
               script {
                     version = sh (script: 'git describe --tags $(git rev-list --tags --max-count=1)',returnStdout: true).trim()
@@ -37,7 +36,7 @@ pipeline {
         }
         stage('Release') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                     sh 'git config --global user.email "aravind.kopparthi@gmail.com"'
