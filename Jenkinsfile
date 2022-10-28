@@ -7,11 +7,7 @@ pipeline {
             filename 'Dockerfile.java8agent'
         }
     }
-
-    environment {
-   
-    
-    }
+ 
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')
         disableConcurrentBuilds()
