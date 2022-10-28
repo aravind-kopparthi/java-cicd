@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Release') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                     sh 'git config --global user.email "aravind.kopparthi@gmail.com"'
