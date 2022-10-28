@@ -14,22 +14,25 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
-     
+ 
         stage('Build') {
-            when {
-                not { branch 'main' }
-            }
             steps {
-                    sh 'mvn verify'
+                    sh 'mvn verify -Drevision=2.0.0'
             }
         }
         stage('NextTag') {
             when {
-                 branch 'main'
+                branch 'main'
             }
             steps {
               script {
-                    version = sh (script: 'git describe --tags $(git rev-list --tags --max-count=1)',returnStdout: true).trim()
+                  try {  
+                  version = sh (script: 'git describe --tags $(git rev-list --tags --max-count=1)',returnStdout: true).trim()
+                  }
+                   catch (Exception e) {
+                      echo 'Exception occurred: ' + e.toString()
+                       version = "v0.0.1"
+                  }
               }
               sh ' echo $version '
             }
@@ -51,7 +54,9 @@ pipeline {
                         // using the full url so that we do not care if https checkout used in Jenkins
                         sh 'git config --global user.email "aravind.kopparthi@gmail.com"'
                         sh 'git config --global user.name "Jenkins CI"'
-                        sh 'git push git@github.com/aravind-kopparthi/maven-cd.git $(cat TAG_NAME.txt)'
+                        //sh 'git push git@github.com/aravind-kopparthi/java-cicd.git $(cat TAG_NAME.txt)'
+                        sh 'git push https://github.com/aravind-kopparthi/java-cicd.git $(cat TAG_NAME.txt)'
+                        
                //     }
                     // Set the display name to the version so it is easier to see in the UI
                     script { currentBuild.displayName = readFile('VERSION.txt').trim() }
