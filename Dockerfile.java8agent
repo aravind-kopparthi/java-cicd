@@ -1,0 +1,5 @@
+FROM amd64/alpine:3.14
+RUN apk update
+RUN apk add --no-cache git
+RUN apk add --no-cache openjdk8
+RUN apk add --no-cache maven
