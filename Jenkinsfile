@@ -28,6 +28,9 @@ pipeline {
             }
         }
         stage('NextTag') {
+            when {
+                branch 'main'
+            }
             steps {
               script {
                   try {  
