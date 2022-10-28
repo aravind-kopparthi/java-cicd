@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn verify -Drevision=${revision} -Dchangelist=${changeList}' 
+                sh "mvn verify -Drevision=${revision} -Dchangelist=${changeList}"
             }
         }
         stage('NextTag') {
