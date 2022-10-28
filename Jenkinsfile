@@ -15,9 +15,9 @@ pipeline {
     }
     stages {
         stage('Prepare') {
-            when  {
-                branch 'main'
-            }
+           when {
+                expression {env.GIT_BRANCH == 'main'}
+              }
             steps {
                 script{
                     changeList = ""
