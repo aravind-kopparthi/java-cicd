@@ -22,7 +22,7 @@ pipeline {
               }
             steps {
                 script{
-                    ${env.changeList} = ""
+                    env.changeList = ""
                 }
             }
              
