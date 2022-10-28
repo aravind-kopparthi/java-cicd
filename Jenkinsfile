@@ -1,4 +1,6 @@
 def changeList = "-SNAPSHOT"
+def result = "0.0.0"
+def revision = "2.2.2"
 pipeline {
     agent {
         dockerfile {
@@ -7,8 +9,7 @@ pipeline {
     }
 
     environment {
-         String result = "0.0.0"
-         String version = "2.2.2"
+   
     
     }
     options {
@@ -29,7 +30,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn verify -Drevision=${version} -Dchangelist=${changeList}' 
+                sh 'mvn verify -Drevision=${revision} -Dchangelist=${changeList}' 
             }
         }
         stage('NextTag') {
