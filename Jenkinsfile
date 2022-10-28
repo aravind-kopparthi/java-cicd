@@ -21,7 +21,7 @@ pipeline {
        }
         stage('Build') {
             when {
-                not { branch 'master' }
+                not { branch 'main' }
             }
             steps {
                     sh 'mvn verify'
