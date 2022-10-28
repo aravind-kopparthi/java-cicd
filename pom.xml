@@ -4,16 +4,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.cloudbeers</groupId>
-  <artifactId>maven-cd</artifactId>
+  <artifactId>java-cicdjava-cicd</artifactId>
   <version>1.x-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>maven-cd Maven Webapp</name>
+  <name>java-cicd Maven Webapp</name>
 
   <scm>
-    <connection>scm:git:https://github.com/aravind-kopparthi/maven-cd.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/aravind-kopparthi/maven-cd.git</developerConnection>
-    <url>http://github.com/aravind-kopparthi/maven-cd</url>
+    <connection>scm:git:https://github.com/aravind-kopparthi/java-cicd.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/aravind-kopparthi/java-cicd.git</developerConnection>
+    <url>http://github.com/aravind-kopparthi/java-cicd</url>
     <tag>HEAD</tag>
   </scm>
 
