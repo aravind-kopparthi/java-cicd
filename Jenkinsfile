@@ -20,7 +20,7 @@ pipeline {
     stages {
         stage('Prepare') {
            when {
-                not {env.GIT_BRANCH == 'main'}
+                 not { branch 'main' }
               }
             steps {
                 script{
