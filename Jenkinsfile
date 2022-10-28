@@ -59,7 +59,7 @@ pipeline {
                         sh 'git config --global user.email "aravind.kopparthi@gmail.com"'
                         sh 'git config --global user.name "Jenkins CI"'
                         //sh 'git push git@github.com/aravind-kopparthi/java-cicd.git $(cat TAG_NAME.txt)'
-                        sh 'git push https://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@github.com/aravind-kopparthi/java-cicd.git $(cat TAG_NAME.txt)'
+                        sh 'git push https://github.com/aravind-kopparthi/java-cicd.git $(cat TAG_NAME.txt)'
                         
                //     }
                     // Set the display name to the version so it is easier to see in the UI
