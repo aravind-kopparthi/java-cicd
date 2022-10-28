@@ -25,7 +25,13 @@
     <sha1></sha1>
     <changelist>-SNAPSHOT</changelist>
   </properties>
-  
+  <dependencies>
+         <dependency>
+           <groupId>org.apache.activemq</groupId>
+           <artifactId>activemq-broker</artifactId>
+           <version>5.14.0${changelist}</version>
+         </dependency>  
+  </dependencies>
   <build>
     <pluginManagement>
       <plugins>
@@ -107,4 +113,19 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+        <repository>
+            <id>jboss-repo</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+            <id>apache.snapshots</id>
+           <name>Apache Development Snapshot Repository</name>
+           <url>https://repository.apache.org/content/repositories/snapshots/</url>
+           <releases>
+             <enabled>false</enabled>
+           </releases>
+           <snapshots>
+             <enabled>true</enabled>
+           </snapshots>
+  </repositories>      
 </project>
