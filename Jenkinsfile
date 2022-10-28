@@ -1,3 +1,4 @@
+def changeList = "-SNAPSHOT"
 pipeline {
     agent {
         dockerfile {
@@ -8,7 +9,7 @@ pipeline {
     environment {
          String result = "0.0.0"
          String version = "2.2.2"
-         String changeList = "-SNAPSHOT"
+    
     }
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')
