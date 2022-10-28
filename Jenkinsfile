@@ -16,11 +16,8 @@ pipeline {
     stages {
  
         stage('Build') {
-            when {
-                not { branch 'main' }
-            }
             steps {
-                    sh 'mvn verify'
+                    sh 'mvn verify -Drevision=2.0.0'
             }
         }
         stage('NextTag') {
