@@ -20,7 +20,9 @@ pipeline {
                 branch 'main'
             }
             steps {
-                changeList = ""
+                script{
+                    changeList = ""
+                }
             }
              
         }
